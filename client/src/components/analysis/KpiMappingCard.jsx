@@ -2,9 +2,17 @@ import { parseKpiItem } from '../../utils/formatAnalysis.js'
 
 function KpiMappingCard({ items, isLoading }) {
   const kpis = Array.isArray(items) ? items.map(parseKpiItem).filter(Boolean) : []
+  const hasKpis = kpis.length > 0
+  const containerClasses = hasKpis || isLoading
+    ? 'flex-1 rounded-[1.75rem] bg-slate-50 p-4 sm:p-5'
+    : 'rounded-[1.75rem] bg-slate-50 p-4 sm:p-5 lg:min-h-[9.5rem]'
 
   return (
-    <article className="rounded-[2rem] border border-slate-200/90 bg-white p-5 shadow-[0_12px_40px_rgba(15,23,42,0.04)] sm:p-6">
+    <article
+      className={`rounded-[2rem] border border-slate-200/90 bg-white p-5 shadow-[0_12px_40px_rgba(15,23,42,0.04)] sm:p-6 ${
+        hasKpis || isLoading ? '' : 'lg:self-start'
+      }`}
+    >
       <div className="flex h-full flex-col gap-5">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
@@ -18,7 +26,7 @@ function KpiMappingCard({ items, isLoading }) {
           </p>
         </div>
 
-        <div className="flex-1 rounded-[1.75rem] bg-slate-50 p-4 sm:p-5">
+        <div className={containerClasses}>
           {isLoading ? (
             <div className="flex min-h-28 items-center justify-center gap-3 text-sm text-slate-500">
               <span
@@ -27,7 +35,7 @@ function KpiMappingCard({ items, isLoading }) {
               />
               Loading KPI mapping...
             </div>
-          ) : kpis.length > 0 ? (
+          ) : hasKpis ? (
             <div className="grid auto-rows-fr gap-3 sm:grid-cols-2">
               {kpis.map((kpi) => (
                 <article
@@ -56,10 +64,12 @@ function KpiMappingCard({ items, isLoading }) {
               ))}
             </div>
           ) : (
-            <p className="min-h-20 text-sm leading-7 text-slate-400">
-              No KPI connections were available for this run. Try rerunning the
-              analysis for more detail.
-            </p>
+            <div className="flex min-h-24 items-center justify-center">
+              <p className="max-w-sm text-center text-sm leading-7 text-slate-500">
+                No KPI connections were available for this run. Try rerunning
+                the analysis for more detail.
+              </p>
+            </div>
           )}
         </div>
       </div>
