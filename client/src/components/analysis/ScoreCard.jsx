@@ -15,9 +15,9 @@ function ScoreCard({ rubricScore, isLoading }) {
   const scoreDisplay = getScoreDisplay(score)
 
   return (
-    <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-      <div className="grid gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-center">
-        <div className="rounded-3xl bg-slate-950 px-6 py-8 text-white">
+    <section className="rounded-[2rem] border border-slate-200/90 bg-white p-5 shadow-[0_12px_40px_rgba(15,23,42,0.04)] sm:p-8">
+      <div className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-stretch">
+        <div className="rounded-[1.75rem] bg-slate-950 px-6 py-7 text-white sm:px-7 sm:py-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
             Rubric Score
           </p>
@@ -32,15 +32,15 @@ function ScoreCard({ rubricScore, isLoading }) {
             </div>
           ) : (
             <>
-              <div className="mt-5 flex items-end gap-2">
-                <span className="text-5xl font-semibold tracking-tight">
+              <div className="mt-7 flex items-end gap-2">
+                <span className="text-6xl font-semibold tracking-tight sm:text-7xl">
                   {score.toFixed(1)}
                 </span>
-                <span className="pb-1 text-sm text-slate-300">out of 10</span>
+                <span className="pb-2 text-sm text-slate-300">out of 10</span>
               </div>
 
               <div
-                className={`mt-5 inline-flex rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${toneClasses[scoreDisplay.tone]}`}
+                className={`mt-6 inline-flex rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${toneClasses[scoreDisplay.tone]}`}
               >
                 {scoreDisplay.label}
               </div>
@@ -48,8 +48,13 @@ function ScoreCard({ rubricScore, isLoading }) {
           )}
         </div>
 
-        <div className="rounded-3xl bg-slate-50 p-5">
-          <h3 className="text-lg font-semibold text-slate-950">Justification</h3>
+        <div className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-5 sm:p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+            Summary
+          </p>
+          <h3 className="mt-2 text-xl font-semibold tracking-tight text-slate-950">
+            Score justification
+          </h3>
           {isLoading ? (
             <div className="mt-4 flex items-center gap-3 text-sm text-slate-500">
               <span
@@ -59,13 +64,13 @@ function ScoreCard({ rubricScore, isLoading }) {
               Generating explanation...
             </div>
           ) : justification ? (
-            <p className="mt-4 text-sm leading-7 text-slate-700">
+            <p className="mt-5 text-sm leading-7 text-slate-700 sm:text-[0.95rem]">
               {justification}
             </p>
           ) : (
             <p className="mt-4 text-sm leading-7 text-slate-400">
-              The rubric explanation will appear here once the analysis is
-              complete.
+              A rubric explanation was not available for this run. Try
+              analyzing again for more context.
             </p>
           )}
         </div>

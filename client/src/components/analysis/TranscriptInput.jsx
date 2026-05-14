@@ -4,20 +4,21 @@ function TranscriptInput({
   selectedSampleId,
   sampleTranscripts,
   onSampleChange,
+  onSampleClear,
   onAnalyze,
   isLoading,
   error,
 }) {
   return (
-    <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-      <div className="flex flex-col gap-6">
+    <section className="rounded-[2rem] border border-slate-200/90 bg-white p-5 shadow-[0_12px_40px_rgba(15,23,42,0.04)] sm:p-8">
+      <div className="flex flex-col gap-5 sm:gap-6">
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                 Input
               </p>
-              <h2 className="mt-2 text-xl font-semibold tracking-tight text-slate-950">
+              <h2 className="mt-2 text-xl font-semibold tracking-tight text-slate-950 sm:text-2xl">
                 Transcript
               </h2>
             </div>
@@ -39,7 +40,7 @@ function TranscriptInput({
             value={selectedSampleId}
             onChange={(event) => onSampleChange(event.target.value)}
             disabled={isLoading}
-            className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none focus:border-slate-400"
+            className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition-colors focus:border-slate-400"
           >
             <option value="">Choose a sample transcript</option>
             {sampleTranscripts.map((sample) => (
@@ -59,10 +60,10 @@ function TranscriptInput({
             onChange={(event) => {
               onTranscriptChange(event.target.value)
               if (selectedSampleId) {
-                onSampleChange('')
+                onSampleClear()
               }
             }}
-            className="min-h-[360px] w-full resize-y rounded-3xl border border-slate-300 bg-slate-50 px-4 py-4 text-sm leading-6 text-slate-900 outline-none placeholder:text-slate-400 focus:border-slate-400"
+            className="min-h-[360px] w-full resize-y rounded-3xl border border-slate-300 bg-slate-50 px-4 py-4 text-sm leading-7 text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-slate-400"
             placeholder="Paste the transcript here..."
             disabled={isLoading}
           />
@@ -74,12 +75,12 @@ function TranscriptInput({
           </div>
         ) : null}
 
-        <div className="flex justify-end">
+        <div className="flex justify-end pt-1">
           <button
             type="button"
             onClick={onAnalyze}
             disabled={isLoading}
-            className="inline-flex items-center justify-center gap-3 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 focus:outline-none disabled:cursor-not-allowed disabled:bg-slate-500"
+            className="inline-flex items-center justify-center gap-3 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 focus:outline-none disabled:cursor-not-allowed disabled:bg-slate-500 sm:min-w-40"
           >
             {isLoading ? (
               <span
