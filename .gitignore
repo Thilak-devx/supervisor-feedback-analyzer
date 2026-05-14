@@ -1,0 +1,73 @@
+# Dependencies
+# Installed packages are machine-specific and reproducible from package manifests.
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment files
+# Secrets and local configuration should never be committed.
+.env
+.env.*
+!.env.example
+client/.env
+client/.env.*
+server/.env
+server/.env.*
+
+# Build output
+# Generated production assets can be rebuilt and would add noisy diffs.
+dist/
+build/
+client/dist/
+client/build/
+server/dist/
+server/build/
+
+# Logs
+# Runtime and debug logs are temporary local artifacts.
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache and temp files
+# Tool caches and temporary files do not belong in source control.
+.cache/
+.tmp/
+tmp/
+temp/
+*.tmp
+
+# Coverage and reports
+# Test coverage output is generated locally or in CI.
+coverage/
+*.lcov
+
+# Editor and OS files
+# Personal editor settings and OS metadata create unnecessary repo noise.
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.suo
+*.user
+*.userossc
+*.swp
+*.swo
+
+# Local AI and model data
+# Local Ollama and model caches can be large, machine-specific, and should stay outside git.
+ollama/
+.ollama/
+models/
+model-cache/
+*.gguf
+*.bin
+
+# Runtime data
+# Local pid files and process artifacts should not be tracked.
+*.pid
+*.pid.lock

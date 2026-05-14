@@ -1,0 +1,17 @@
+[
+  {
+    "id": "weekly-checkin",
+    "label": "Weekly Check-In",
+    "transcript": "Supervisor: Thanks for joining. I wanted to start by saying your customer follow-up was much stronger this week.\nEmployee: I appreciate that. I tried to be more consistent.\nSupervisor: It showed. The updates were timely and your notes were clear. One area to tighten is closing the loop on overdue requests.\nEmployee: That makes sense. I know I missed two follow-ups on Wednesday.\nSupervisor: Right, and I would like to see a simple tracking habit so those do not slip next week.\nEmployee: I can set up a daily reminder and review open items before lunch.\nSupervisor: Good plan. Let us check progress again on Friday."
+  },
+  {
+    "id": "performance-coaching",
+    "label": "Performance Coaching",
+    "transcript": "Supervisor: I want to talk through yesterday's client call. You handled the introduction well and kept the tone professional.\nEmployee: Thank you. I felt prepared for the opening.\nSupervisor: Where we lost momentum was in the pricing discussion. The explanation became vague and the client had to ask the same question twice.\nEmployee: I noticed that too. I was not fully confident in the latest package details.\nSupervisor: I appreciate your honesty. Before the next call, review the updated pricing sheet and practice two concise ways to explain the recommendation.\nEmployee: I can do that and send you my talking points first.\nSupervisor: That would help. I also want you to end each call with a clear summary and next steps."
+  },
+  {
+    "id": "recognition-followup",
+    "label": "Recognition and Follow-Up",
+    "transcript": "Supervisor: I want to recognize the way you supported the new team member this week.\nEmployee: Thanks, I tried to make time for questions.\nSupervisor: It made a difference. Your patience and clarity stood out. I also noticed that the documentation handoff was delayed by a day.\nEmployee: Yes, I prioritized onboarding and underestimated the wrap-up work.\nSupervisor: Understood. In the future, communicate that tradeoff earlier so we can adjust expectations together.\nEmployee: That is fair. I will flag those tradeoffs sooner.\nSupervisor: Great. Keep the strong support mindset, and let us improve the planning piece at the same time."
+  }
+]
